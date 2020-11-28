@@ -1,36 +1,38 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Rocket : MonoBehaviour
+namespace ProjectBoost
 {
-    private Rigidbody _rigidbody;
-    
-    // Use this for initialization
-    private void Start()
+    public class Rocket : MonoBehaviour
     {
-        
-    }
+        private Rigidbody _rigidbody;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        ProcessInput();
-    }
-
-    private static void ProcessInput()
-    {
-        if (Input.GetKey(KeyCode.Space))
+        // Use this for initialization
+        private void Start()
         {
-            
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
-        if (Input.GetKey(KeyCode.A))
+        // Update is called once per frame
+        private void Update()
         {
-            
+            ProcessInput();
         }
-        else if (Input.GetKey(KeyCode.D))
+
+        private void ProcessInput()
         {
-            
+            if (Input.GetKey(KeyCode.Space))
+            {
+                _rigidbody.AddRelativeForce(Vector3.up);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+
+            }
         }
     }
 }

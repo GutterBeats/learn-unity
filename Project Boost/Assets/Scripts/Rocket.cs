@@ -1,18 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody _rigidbody;
+    
+    // Use this for initialization
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        ProcessInput();
+    }
+
+    private static void ProcessInput()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            
+        }
     }
 }

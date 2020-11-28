@@ -27,11 +27,11 @@ namespace ProjectBoost
 
             if (Input.GetKey(KeyCode.A))
             {
-
+                transform.Rotate(Vector3.forward);
             }
             else if (Input.GetKey(KeyCode.D))
             {
-
+                transform.Rotate(-Vector3.forward);
             }
         }
     }

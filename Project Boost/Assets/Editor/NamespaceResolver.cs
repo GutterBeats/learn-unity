@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 using UnityEditor;
 
@@ -8,12 +9,14 @@ namespace ProjectBoost.Editor
     {
         public static void OnWillCreateAsset(string metaFilePath)
         {
+            if (string.IsNullOrEmpty(EditorSettings.projectGenerationRootNamespace))
+                throw new ArgumentException("Root Namespace must be set for the Project.\n\t\tEdit -> Project Settings -> Editor -> Root Namespace");
+            
             string fileName = Path.GetFileNameWithoutExtension(metaFilePath);
             string directory = Path.GetDirectoryName(metaFilePath);
 
             if (!fileName.EndsWith(".cs") || string.IsNullOrEmpty(directory)) return;
 
-            string actualFile = Path.Combine(directory, fileName);
             string[] segmentedPath = directory.Split(Path.PathSeparator);
             
             string finalNamespace = EditorSettings.projectGenerationRootNamespace;
@@ -29,12 +32,13 @@ namespace ProjectBoost.Editor
                     generatedNamespace +=
                         i == segmentedPath.Length - 1
                             ? segmentedPath[i]
-                            : segmentedPath[i] + "."; // Don't add '.' at the end of the namespace
+                            : $"{segmentedPath[i]}."; // Don't add '.' at the end of the namespace
                 }
                 
-                finalNamespace = EditorSettings.projectGenerationRootNamespace + "." + generatedNamespace;   
+                finalNamespace = $"{EditorSettings.projectGenerationRootNamespace}.{generatedNamespace}";
             }
             
+            string actualFile = Path.Combine(directory, fileName);
             string content = File.ReadAllText(actualFile);
             string newContent = content.Replace("#NAMESPACE#", finalNamespace);
 

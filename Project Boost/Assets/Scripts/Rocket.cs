@@ -16,8 +16,7 @@ namespace ProjectBoost
         // Use this for initialization
         private void Start()
         {
-            _rigidbody = GetComponent<Rigidbody>();
-            _audio = GetComponent<AudioSource>();
+            InitializeFields();
         }
 
         // Update is called once per frame
@@ -25,6 +24,12 @@ namespace ProjectBoost
         {
             Thrust();
             Rotate();
+        }
+        
+        private void InitializeFields()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+            _audio = GetComponent<AudioSource>();
         }
 
         private void Thrust()

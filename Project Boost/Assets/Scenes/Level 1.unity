@@ -135,6 +135,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 562040449, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 562040450, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
+      propertyPath: rcsThrust
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 562040450, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
+      propertyPath: mainThrust
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2672818308215807034, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
       propertyPath: m_Name
       value: Rocket Ship
@@ -182,18 +194,6 @@ PrefabInstance:
     - target: {fileID: 2672818308215807035, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4602450487597014367, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4602450487597014367, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
-      propertyPath: Mute
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4602450487597014367, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d80e31729ff02b7479e92ed19aa5dfcb, type: 3}

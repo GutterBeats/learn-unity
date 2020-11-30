@@ -17,10 +17,11 @@ namespace ProjectBoost
         // Update is called once per frame
         private void Update()
         {
-            ProcessInput();
+            Thrust();
+            Rotate();
         }
 
-        private void ProcessInput()
+        private void Thrust()
         {
             if (Input.GetKey(KeyCode.Space))
             {
@@ -29,7 +30,10 @@ namespace ProjectBoost
                 _audio.mute = false;
             }
             else _audio.mute = true;
+        }
 
+        private void Rotate()
+        {
             if (Input.GetKey(KeyCode.A))
             {
                 transform.Rotate(Vector3.forward);

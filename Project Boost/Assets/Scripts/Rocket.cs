@@ -5,11 +5,13 @@ namespace ProjectBoost
     public class Rocket : MonoBehaviour
     {
         private Rigidbody _rigidbody;
+        private AudioSource _audio;
 
         // Use this for initialization
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _audio = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -23,7 +25,10 @@ namespace ProjectBoost
             if (Input.GetKey(KeyCode.Space))
             {
                 _rigidbody.AddRelativeForce(Vector3.up);
+
+                _audio.mute = false;
             }
+            else _audio.mute = true;
 
             if (Input.GetKey(KeyCode.A))
             {

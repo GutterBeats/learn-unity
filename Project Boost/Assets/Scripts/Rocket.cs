@@ -4,6 +4,12 @@ namespace ProjectBoost
 {
     public class Rocket : MonoBehaviour
     {
+        [SerializeField]
+        private float rcsThrust = 100f;
+
+        [SerializeField]
+        private float mainThrust = 100f;
+
         private Rigidbody _rigidbody;
         private AudioSource _audio;
 
@@ -23,9 +29,10 @@ namespace ProjectBoost
 
         private void Thrust()
         {
+            float thrustThisFrame = mainThrust * Time.deltaTime;
             if (Input.GetKey(KeyCode.Space))
             {
-                _rigidbody.AddRelativeForce(Vector3.up);
+                _rigidbody.AddRelativeForce(Vector3.up * thrustThisFrame);
 
                 _audio.mute = false;
             }
@@ -34,14 +41,19 @@ namespace ProjectBoost
 
         private void Rotate()
         {
+            _rigidbody.freezeRotation = true;
+
+            float rotationThisFrame = rcsThrust * Time.deltaTime;
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Rotate(Vector3.forward);
+                transform.Rotate(Vector3.forward * rotationThisFrame);
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                transform.Rotate(-Vector3.forward);
+                transform.Rotate(-Vector3.forward * rotationThisFrame);
             }
+
+            _rigidbody.freezeRotation = false;
         }
     }
 }

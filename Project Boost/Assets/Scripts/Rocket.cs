@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 
 namespace ProjectBoost
 {
@@ -25,7 +27,16 @@ namespace ProjectBoost
             Thrust();
             Rotate();
         }
-        
+
+        private void OnCollisionEnter(Collision other)
+        {
+            switch (other.gameObject.tag)
+            {
+                case Tags.Friendly:
+                    break;
+            }
+        }
+
         private void InitializeFields()
         {
             _rigidbody = GetComponent<Rigidbody>();

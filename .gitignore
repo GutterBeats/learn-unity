@@ -72,3 +72,5 @@ crashlytics-build.properties
 
 # JetBrains idea folder
 .idea/
+
+.DS_Store
